@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>남도일 돌잔치에 초대합니다</title>
+<meta name="description" content="2026년 12월 19일(토) 오전 11시 · 상봉 더아너스 C동 지하1층 라체나홀">
+<meta property="og:type" content="website">
+<meta property="og:title" content="남도일 돌잔치에 초대합니다">
+<meta property="og:description" content="2026.12.19(토) 오전 11시 · 상봉 더아너스 라체나홀">
+<meta property="og:image" content="__BASE__img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="632">
+<meta property="og:url" content="__BASE__">
+<meta name="theme-color" content="#1c2346">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap">
+<style>
+/* Layout: a phone-width card. Cover = full-bleed portrait with title over a navy fade; tap opens a
+   single scrolling invitation (인사말 → 일시 → 장소 → 돌잡이 → 공유). Saekdong (색동) stripes from the
+   sleeves of 도일이's hanbok are the recurring ornament. One deliberate light look, no dark variant. */
+:root{
+  --ground:#e9e7ec;        /* studio backdrop grey, nudged toward the hanbok navy */
+  --paper:#fbfafc;
+  --ink:#1c2346;           /* hanbok navy */
+  --ink-soft:#4a5070;
+  --gold:#a8792c;
+  --gold-soft:#e9dcc2;
+  --line:#dcd8e2;
+  --s-red:#d23b45; --s-yellow:#f0bd2c; --s-green:#2f9a5e; --s-blue:#2c56b5; --s-pink:#e0679b; --s-white:#ffffff;
+  --display:"Gowun Batang", "Nanum Myeongjo", "AppleMyungjo", serif;
+  --body:"Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.app{max-width:480px;margin:0 auto;min-height:100%;background:var(--paper);position:relative;box-shadow:0 0 0 1px var(--line),0 20px 60px rgba(28,35,70,.12)}
+
+/* 색동 stripe */
+.saekdong{display:flex;height:8px;width:100%}
+.saekdong i{flex:1;display:block}
+.saekdong i:nth-child(1){background:var(--s-red)}
+.saekdong i:nth-child(2){background:var(--s-yellow)}
+.saekdong i:nth-child(3){background:var(--s-white)}
+.saekdong i:nth-child(4){background:var(--s-green)}
+.saekdong i:nth-child(5){background:var(--s-blue)}
+.saekdong i:nth-child(6){background:var(--s-pink)}
+.saekdong i:nth-child(7){background:var(--s-yellow)}
+
+/* ---------- Cover ---------- */
+.cover{position:relative;height:100svh;min-height:560px;max-height:960px;overflow:hidden;background:#b9b5bb;cursor:pointer;display:block;width:100%;border:0;padding:0;text-align:left}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+.cover::after{content:"";position:absolute;inset:auto 0 0 0;height:58%;background:linear-gradient(to top,rgba(20,25,52,.92) 0%,rgba(20,25,52,.62) 42%,rgba(20,25,52,0) 100%)}
+.cover-text{position:absolute;z-index:1;left:0;right:0;bottom:0;padding:0 max(28px,env(safe-area-inset-right,0px)) calc(44px + env(safe-area-inset-bottom,0px)) max(28px,env(safe-area-inset-left,0px));color:#fff}
+.cover-eyebrow{font-family:var(--display);font-size:13px;letter-spacing:.32em;color:var(--gold-soft);margin:0 0 10px}
+.cover-title{font-family:var(--display);font-weight:700;margin:0;line-height:1.25;text-wrap:balance}
+.cover-title .name{display:block;font-size:52px;letter-spacing:.06em}
+.cover-title .rest{display:block;font-size:24px;font-weight:400;margin-top:6px}
+.cover-date{margin:18px 0 0;font-family:var(--display);font-size:16px;letter-spacing:.08em;color:rgba(255,255,255,.88);font-variant-numeric:tabular-nums}
+.cover-cta{margin-top:28px;display:inline-flex;align-items:center;gap:10px;padding:12px 20px 12px 22px;border:1px solid rgba(255,255,255,.55);border-radius:999px;font-size:15px;background:rgba(255,255,255,.08);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.cover-cta svg{width:16px;height:16px;animation:bob 1.6s ease-in-out infinite}
+.cover .saekdong{position:absolute;bottom:0;left:0;z-index:2;height:6px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.cover-text > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.cover-text > *:nth-child(2){animation-delay:.12s}
+.cover-text > *:nth-child(3){animation-delay:.24s}
+.cover-text > *:nth-child(4){animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.cover.leaving{transition:transform .7s cubic-bezier(.7,0,.2,1),opacity .7s;transform:translateY(-100%);opacity:.6}
+
+/* ---------- Invitation ---------- */
+.inv{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding-block:18px 0}
+.back{background:none;border:0;padding:6px 0;font-size:14px;color:var(--ink-soft);display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.mono{font-family:var(--display);font-size:12px;letter-spacing:.3em;color:var(--gold)}
+
+section{padding-block:56px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.eyebrow{font-family:var(--display);font-size:12px;letter-spacing:.34em;color:var(--gold);text-align:center;margin:0 0 10px}
+h2{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.35;text-align:center;margin:0 0 28px;text-wrap:balance}
+
+.hello{text-align:center}
+.portrait{width:132px;height:132px;border-radius:50%;overflow:hidden;margin:6px auto 26px;border:3px solid var(--paper);box-shadow:0 0 0 1px var(--gold-soft),0 0 0 6px var(--paper),0 0 0 7px var(--gold-soft)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.9);transform-origin:50% 22%}
+.letter{font-family:var(--display);font-size:16px;line-height:2.05;color:var(--ink);margin:0 auto;max-width:30em}
+.sign{margin-top:28px;font-size:15px;color:var(--ink-soft)}
+.sign b{font-family:var(--display);color:var(--ink);font-weight:700}
+
+/* 일시 */
+.when-big{text-align:center;font-family:var(--display)}
+.when-big .d{font-size:34px;font-weight:700;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.when-big .t{font-size:17px;color:var(--ink-soft);margin-top:2px}
+.cal{margin:30px auto 0;max-width:340px;font-variant-numeric:tabular-nums}
+.cal-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:10px}
+.cal-head b{font-family:var(--display);font-size:18px}
+.cal-head span{font-size:12px;letter-spacing:.2em;color:var(--ink-soft)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:6px;text-align:center;font-size:14px}
+.cal-grid .dow{font-size:12px;color:var(--ink-soft);padding-bottom:4px}
+.cal-grid .sun{color:var(--s-red)}
+.cal-grid .sat{color:var(--s-blue)}
+.cal-grid div{height:38px;display:flex;align-items:center;justify-content:center;position:relative}
+.cal-grid .party span{background:var(--ink);color:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+.cal-grid .bday::after{content:"첫돌";position:absolute;bottom:-6px;font-size:10px;color:var(--gold);letter-spacing:.05em}
+.cal-grid .bday span{border:1px dashed var(--gold);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.dday{margin:30px auto 0;text-align:center;font-size:15px;color:var(--ink-soft)}
+.dday strong{display:inline-block;font-family:var(--display);font-size:20px;color:var(--ink);margin:0 4px;font-variant-numeric:tabular-nums}
+
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--paper);font-size:14px;text-decoration:none;cursor:pointer;flex:1 1 0;min-width:0;white-space:nowrap}
+.btn:hover{border-color:var(--ink-soft)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* 장소 */
+.where-name{text-align:center;font-family:var(--display)}
+.where-name .v{font-size:26px;font-weight:700}
+.where-name .h{font-size:16px;color:var(--ink);margin-top:4px}
+.addr{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;font-size:15px;color:var(--ink-soft);flex-wrap:wrap}
+.chip{border:1px solid var(--line);border-radius:999px;background:none;font-size:12px;padding:3px 10px;cursor:pointer;color:var(--ink-soft)}
+.map{position:relative;margin-top:24px;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;max-width:100%;background:linear-gradient(135deg,#eceaf0,#e2dfe8)}
+.map .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--ink-soft);font-size:13px;text-align:center;padding:16px}
+.map .fallback svg{width:28px;height:28px;color:var(--s-red)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.guide{margin-top:26px;display:grid;gap:14px}
+.guide div{display:grid;grid-template-columns:64px 1fr;gap:12px;font-size:14px;line-height:1.6}
+.guide dt{font-family:var(--display);font-weight:700;color:var(--ink)}
+.guide dd{margin:0;color:var(--ink-soft);min-width:0}
+
+/* 돌잡이 */
+.lead{text-align:center;color:var(--ink-soft);font-size:15px;margin:-14px 0 26px}
+.picks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pick{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:14px 4px 10px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;transition:transform .15s,border-color .15s,background .15s}
+.pick .ic{font-size:26px;line-height:1}
+.pick .nm{font-size:13px;font-weight:700}
+.pick .mn{font-size:11px;color:var(--ink-soft);line-height:1.3}
+.pick:hover{transform:translateY(-2px)}
+.pick[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.pick[aria-pressed="true"] .mn{color:var(--gold-soft)}
+.pick-result{text-align:center;margin-top:20px;font-family:var(--display);font-size:16px;min-height:1.75em}
+
+/* 공유 */
+.share p{text-align:center;color:var(--ink-soft);margin:0}
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:20}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+footer{text-align:center;padding-block:40px 48px;font-family:var(--display);color:var(--ink-soft);font-size:13px;letter-spacing:.1em}
+footer .nm{font-size:18px;color:var(--ink);letter-spacing:.2em;margin-bottom:4px}
+
+@media (max-width:360px){
+  .cover-title .name{font-size:44px}
+  .picks{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+
+<div class="app">
+  <button class="cover" id="cover" type="button" aria-label="초대장 열기">
+    <img src="img/main.jpg" alt="한복을 입고 의자에 앉아 활짝 웃는 도일이" fetchpriority="high">
+    <div class="cover-text">
+      <p class="cover-eyebrow">첫 번째 생일</p>
+      <h1 class="cover-title"><span class="name">남도일</span><span class="rest">돌잔치에 초대합니다</span></h1>
+      <p class="cover-date">2026. 12. 19 토요일 오전 11시</p>
+      <span class="cover-cta">초대장 열어보기
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>
+      </span>
+    </div>
+    <div class="saekdong" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </button>
+
+  <main id="invite" hidden>
+    <div class="saekdong" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="inv">
+      <div class="topbar">
+        <button class="back" id="back" type="button">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+          표지로
+        </button>
+        <span class="mono">INVITATION</span>
+      </div>
+
+      <section class="hello">
+        <div class="portrait"><img src="img/main.jpg" alt=""></div>
+        <p class="eyebrow">초대의 글</p>
+        <h2>도일이의 첫 번째 생일</h2>
+        <p class="letter">
+          크리스마스이브에 저희에게 와 준 도일이가<br>
+          어느덧 첫 번째 생일을 맞이합니다.<br><br>
+          잘 웃고 잘 먹고, 무럭무럭 자라 준 도일이의<br>
+          첫 생일을 축하하는 자리에<br>
+          소중한 분들을 모시고자 합니다.<br><br>
+          귀한 걸음 하시어 따뜻한 마음으로<br>
+          함께해 주시면 감사하겠습니다.
+        </p>
+        <p class="sign"><b>도일이 아빠 · 엄마</b> 드림</p>
+      </section>
+
+      <section class="when" aria-labelledby="when-h">
+        <p class="eyebrow">일시</p>
+        <h2 id="when-h" hidden>일시</h2>
+        <div class="when-big">
+          <div class="d">2026. 12. 19</div>
+          <div class="t">토요일 오전 11시</div>
+        </div>
+
+        <div class="cal" aria-label="2026년 12월 달력">
+          <div class="cal-head"><b>12월</b><span>DECEMBER 2026</span></div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+
+        <p class="dday" id="dday"></p>
+
+        <div class="btn-row">
+          <a class="btn primary" id="gcal" target="_blank" rel="noopener">구글 캘린더에 추가</a>
+          <button class="btn" id="ics" type="button">휴대폰 캘린더에 저장</button>
+        </div>
+      </section>
+
+      <section class="where" aria-labelledby="where-h">
+        <p class="eyebrow">오시는 길</p>
+        <h2 id="where-h" hidden>장소</h2>
+        <div class="where-name">
+          <div class="v">상봉 더아너스</div>
+          <div class="h">C동 지하 1층 라체나홀</div>
+        </div>
+        <div class="addr"><span id="addrText">서울 중랑구 망우로 353</span><button class="chip" id="copyAddr" type="button">주소 복사</button></div>
+
+        <div class="map">
+          <div class="fallback">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>상봉 더아너스 · 망우로 353</span>
+            <span>아래 지도 앱 버튼으로 바로 길찾기 할 수 있어요</span>
+          </div>
+          <iframe title="상봉 더아너스 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%A1%9C%20353&z=16&hl=ko&output=embed"></iframe>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn" target="_blank" rel="noopener" href="https://map.naver.com/p/search/%EC%83%81%EB%B4%89%20%EB%8D%94%EC%95%84%EB%84%88%EC%8A%A4">네이버 지도</a>
+          <a class="btn" target="_blank" rel="noopener" href="https://map.kakao.com/?q=%EC%83%81%EB%B4%89%20%EB%8D%94%EC%95%84%EB%84%88%EC%8A%A4">카카오맵</a>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%EC%84%9C%EC%9A%B8%20%EC%A4%91%EB%9E%91%EA%B5%AC%20%EB%A7%9D%EC%9A%B0%EB%A1%9C%20353">구글 지도</a>
+        </div>
+
+      </section>
+
+      <section class="dol" aria-labelledby="dol-h">
+        <p class="eyebrow">돌잡이</p>
+        <h2 id="dol-h">도일이는 무엇을 잡을까요?</h2>
+        <p class="lead">미리 하나 골라 두고, 잔치에서 확인해 보세요.</p>
+        <div class="picks" id="picks"></div>
+        <p class="pick-result" id="pickResult" aria-live="polite"></p>
+      </section>
+
+      <section class="share">
+        <p class="eyebrow">함께 나누기</p>
+        <h2>초대장 전하기</h2>
+        <p>도일이의 첫 생일을 축하해 주실 분께 전해 주세요.</p>
+        <div class="btn-row">
+          <button class="btn primary" id="shareBtn" type="button" hidden>공유하기</button>
+          <button class="btn" id="copyLink" type="button">링크 복사</button>
+        </div>
+      </section>
+    </div>
+    <div class="saekdong" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <footer>
+      <div class="nm">남 도 일</div>
+      <div>첫돌 2026. 12. 24</div>
+    </footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  var cover=document.getElementById('cover'), inv=document.getElementById('invite');
+  var EVENT={y:2026,m:11,d:19};
+
+  function show(view, animate){
+    if(view==='invite'){
+      if(animate){
+        cover.classList.add('leaving');
+        inv.hidden=false;
+        setTimeout(function(){cover.hidden=true;cover.classList.remove('leaving');window.scrollTo(0,0);},700);
+      }else{cover.hidden=true;inv.hidden=false;window.scrollTo(0,0);}
+    }else{
+      inv.hidden=true;cover.hidden=false;window.scrollTo(0,0);
+    }
+  }
+  function route(animate){ show(location.hash==='#invite'?'invite':'cover', animate); }
+  cover.addEventListener('click',function(){ if(location.hash!=='#invite'){ location.hash='invite'; } });
+  document.getElementById('back').addEventListener('click',function(){
+    try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){ location.hash=''; }
+    route(false);
+  });
+  window.addEventListener('hashchange',function(){route(true);});
+  route(false);
+
+  /* 달력 */
+  var g=document.getElementById('calGrid');
+  var dows=['일','월','화','수','목','금','토'];
+  dows.forEach(function(d,i){var e=document.createElement('div');e.className='dow'+(i===0?' sun':i===6?' sat':'');e.textContent=d;g.appendChild(e);});
+  var first=new Date(EVENT.y,EVENT.m,1).getDay();
+  for(var i=0;i<first;i++) g.appendChild(document.createElement('div'));
+  for(var day=1;day<=31;day++){
+    var c=document.createElement('div'), dow=(first+day-1)%7;
+    var s=document.createElement('span'); s.textContent=day; c.appendChild(s);
+    if(dow===0) c.classList.add('sun'); if(dow===6) c.classList.add('sat');
+    if(day===19){c.classList.add('party');c.setAttribute('aria-label','12월 19일 돌잔치');}
+    if(day===24){c.classList.add('bday');c.setAttribute('aria-label','12월 24일 첫돌');}
+    g.appendChild(c);
+  }
+
+  /* D-day (한국 시간 기준) */
+  var k=new Date(Date.now()+9*3600e3);
+  var today=Date.UTC(k.getUTCFullYear(),k.getUTCMonth(),k.getUTCDate());
+  var diff=Math.round((Date.UTC(EVENT.y,EVENT.m,EVENT.d)-today)/864e5);
+  var dd=document.getElementById('dday');
+  if(diff>0) dd.innerHTML='도일이 돌잔치까지 <strong>D-'+diff+'</strong>';
+  else if(diff===0) dd.innerHTML='<strong>오늘</strong> 도일이 돌잔치 날이에요';
+  else dd.textContent='함께해 주셔서 감사합니다';
+
+  /* 캘린더 */
+  var title='남도일 돌잔치', loc='상봉 더아너스 C동 지하1층 라체나홀 (서울 중랑구 망우로 353)';
+  document.getElementById('gcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE'
+    +'&text='+encodeURIComponent(title)+'&dates=20261219T020000Z/20261219T040000Z'
+    +'&location='+encodeURIComponent(loc)+'&details='+encodeURIComponent('도일이의 첫 생일 잔치에 초대합니다.');
+  document.getElementById('ics').addEventListener('click',function(){
+    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//doil-dol//KO','BEGIN:VEVENT',
+      'UID:doil-dol-20261219@invite','DTSTAMP:20261029T000000Z','DTSTART:20261219T020000Z','DTEND:20261219T040000Z',
+      'SUMMARY:'+title,'LOCATION:'+loc.replace(/,/g,'\\,'),'DESCRIPTION:도일이의 첫 생일 잔치에 초대합니다.',
+      'BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY','DESCRIPTION:내일은 도일이 돌잔치','END:VALARM',
+      'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    try{
+      var url=URL.createObjectURL(new Blob([ics],{type:'text/calendar;charset=utf-8'}));
+      var a=document.createElement('a'); a.href=url; a.download='doil-dol.ics'; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){URL.revokeObjectURL(url);},2000);
+    }catch(e){ toast('구글 캘린더 버튼을 이용해 주세요'); }
+  });
+
+  /* 복사 / 공유 */
+  var t=document.getElementById('toast'), tt;
+  function toast(msg){t.textContent=msg;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on');},1800);}
+  function copy(text,done){
+    function fallback(){
+      var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';
+      document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();
+      toast(ok?done:'길게 눌러 복사해 주세요: '+text);
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast(done);},fallback);}
+    else fallback();
+  }
+  function pageUrl(){return location.href.split('#')[0];}
+  document.getElementById('copyAddr').addEventListener('click',function(){copy('서울 중랑구 망우로 353','주소를 복사했어요');});
+  document.getElementById('copyLink').addEventListener('click',function(){copy(pageUrl(),'초대장 링크를 복사했어요');});
+  var sb=document.getElementById('shareBtn');
+  if(navigator.share){
+    sb.hidden=false;
+    sb.addEventListener('click',function(){
+      navigator.share({title:'남도일 돌잔치에 초대합니다',text:'2026년 12월 19일(토) 오전 11시 · 상봉 더아너스 라체나홀',url:pageUrl()}).catch(function(){});
+    });
+  }
+
+  /* 돌잡이 */
+  var items=[['🧵','실','건강하게 오래오래','을'],['💰','돈','부자 될 거예요','을'],['✏️','연필','공부 잘하는 아이','을'],['⚖️','판사봉','정의로운 법조인','을'],
+             ['🩺','청진기','사람을 살리는 의사','를'],['🎤','마이크','끼 많은 연예인','를'],['⚽','공','멋진 운동선수','을'],['🖱️','마우스','아빠 닮은 개발자','를']];
+  var picks=document.getElementById('picks'), res=document.getElementById('pickResult'), saved=null;
+  try{saved=localStorage.getItem('doil-pick');}catch(e){}
+  items.forEach(function(it,idx){
+    var b=document.createElement('button');b.type='button';b.className='pick';b.id='pick-'+idx;
+    b.setAttribute('aria-pressed','false');
+    b.innerHTML='<span class="ic" aria-hidden="true">'+it[0]+'</span><span class="nm">'+it[1]+'</span><span class="mn">'+it[2]+'</span>';
+    b.addEventListener('click',function(){select(idx,true);});
+    picks.appendChild(b);
+  });
+  function select(idx,store){
+    [].forEach.call(picks.children,function(b,i){b.setAttribute('aria-pressed',i===idx?'true':'false');});
+    res.textContent='도일이는 '+items[idx][1]+items[idx][3]+' 잡을 거예요!';
+    if(store){try{localStorage.setItem('doil-pick',String(idx));}catch(e){}}
+  }
+  if(saved!==null&&items[+saved]) select(+saved,false);
+})();
+</script>
+
+</body>
+</html>
