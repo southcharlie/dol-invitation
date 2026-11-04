@@ -229,10 +229,6 @@ img{display:block}
     <div class="cal rise" id="cal" style="--i:3" aria-label="2026년 12월 달력. 19일 돌잔치, 24일 생일"></div>
     <p class="calnote rise" style="--i:4"><span class="a">19일 잔치</span><span class="b">24일 도일이 생일</span></p>
     <p class="dday rise" style="--i:5">잔치까지 <b id="dd">0</b>일 남았어요.</p>
-    <div class="links rise" style="--i:6">
-      <a class="main" id="gcal" target="_blank" rel="noopener">캘린더에 추가</a>
-      <button id="ics" type="button">휴대폰에 저장</button>
-    </div>
   </div>
   <button class="hint" type="button" data-next>scroll<i></i></button>
 </section>
@@ -322,18 +318,6 @@ img{display:block}
   var k=new Date(Date.now()+9*3600e3),today=Date.UTC(k.getUTCFullYear(),k.getUTCMonth(),k.getUTCDate());
   var left=Math.round((Date.UTC(2026,11,19)-today)/864e5),dd=document.getElementById('dd');
   if(left>0)dd.textContent=left;else dd.parentNode.textContent=left===0?'오늘이 잔치 날이에요.':'함께해 주셔서 감사합니다.';
-
-  /* calendar export */
-  var title='남도일 돌잔치',loc='상봉 더아너스 C동 지하1층 라체나홀 (서울 중랑구 망우로 353)';
-  document.getElementById('gcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)
-    +'&dates=20261219T020000Z/20261219T040000Z&location='+encodeURIComponent(loc)+'&details='+encodeURIComponent('도일이의 첫 생일 잔치에 초대합니다.');
-  document.getElementById('ics').addEventListener('click',function(){
-    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//doil-dol//KO','BEGIN:VEVENT','UID:doil-dol-20261219@invite','DTSTAMP:20261029T000000Z',
-      'DTSTART:20261219T020000Z','DTEND:20261219T040000Z','SUMMARY:'+title,'LOCATION:'+loc,'DESCRIPTION:도일이의 첫 생일 잔치에 초대합니다.',
-      'BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY','DESCRIPTION:내일은 도일이 돌잔치','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
-    try{var u=URL.createObjectURL(new Blob([ics],{type:'text/calendar;charset=utf-8'}));var a=document.createElement('a');a.href=u;a.download='doil-dol.ics';
-      document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u);},2000);}catch(e){toast('캘린더에 추가를 이용해 주세요');}
-  });
 
   /* copy / share */
   var tEl=document.getElementById('toast'),tt;
